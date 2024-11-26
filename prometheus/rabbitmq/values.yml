@@ -1,0 +1,6 @@
+rabbitmq:
+  url: "http://rmq-rabbitmq.default.svc.cluster.local:15672"
+  user: "user"
+  password: "KbOW1IG3wubEEDEG"
+  # existingPasswordSecret: "rmq-rabbitmq"
+  # existingPasswordSecretKey: "rabbitmq-password"

@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      # accommodations
+      - pathType: Prefix
+        path: "/accommodations"
+        backend:
+          service:
+            name: accommodation-service
+            port:
+              name: http
+      # listings
+      - pathType: Prefix
+        path: "/listings"
+        backend:
+          service:
+            name: listing-service
+            port:
+              name: http
