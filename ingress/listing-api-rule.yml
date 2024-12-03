@@ -1,0 +1,11 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: listing-api-rule
+spec:
+  routes:
+    - match: PathPrefix(`/listings`)
+      kind: Rule
+      services:
+        - name: listing-service
+          port: http

@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: grafana-dashboard
+  namespace: monitoring
+spec:
+  routes:
+    - match: Host(`grafana.localhost`)
+      kind: Rule
+      services:
+        - name: prometheus-grafana
+          namespace: monitoring
+          port: http-web

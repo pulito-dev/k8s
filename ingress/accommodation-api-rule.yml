@@ -1,0 +1,11 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: accommodation-api-rule
+spec:
+  routes:
+    - match: PathPrefix(`/accommodations`)
+      kind: Rule
+      services:
+        - name: accommodation-service
+          port: http

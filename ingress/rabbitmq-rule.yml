@@ -1,0 +1,11 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: rabbitmq-dashboard
+spec:
+  routes:
+    - match: Host(`rabbitmq.localhost`)
+      kind: Rule
+      services:
+        - name: rmq-rabbitmq
+          port: http-stats
