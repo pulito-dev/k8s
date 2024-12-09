@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: auth
+spec:
+  forwardAuth:
+    address: http://user-service.default.svc.cluster.local:8080/auth/
+    trustForwardHeader: true
+    authRequestHeaders:
+      - authorization
+    authResponseHeaders:
+      - X-Forwarded-User
+      - authorization

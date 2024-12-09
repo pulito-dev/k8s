@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: user-api-rule
+spec:
+  routes:
+    - match: PathPrefix(`/users`) || PathPrefix(`/auth`)
+      kind: Rule
+      # middlewares:
+      #   - name: auth
+      services:
+        - name: user-service
+          port: http
